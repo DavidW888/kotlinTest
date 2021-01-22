@@ -1,7 +1,6 @@
-package ClassKotlin
+package classkotlin
 
-import org.omg.CORBA.INTERNAL
-import kotlin.math.sign
+import com.example.kotlindemo.basekotlin.KotlinData
 
 fun main(args: Array<String>) {
 //    fun List<String>.getShortWordsTo(shortWords: MutableList<String>, maxLength: Int) {
@@ -430,11 +429,20 @@ fun main(args: Array<String>) {
 //    numbersMap -= listOf("two", "four")
 //            println(numbersMap)
 
-    val numbersMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3, "threeAgain" to 3)
-    numbersMap.keys.remove("one")
-    println(numbersMap)
-    numbersMap.values.remove(3)
-    println(numbersMap)
+//    val numbersMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3, "threeAgain" to 3)
+//    numbersMap.keys.remove("one")
+//    println(numbersMap)
+//    numbersMap.values.remove(3)
+//    println(numbersMap)
+//
+//    InitOrderDemo("ssss");
+//    KotlinData();
+
+    val a="111"
+    val b ="111"
+    println(a==b)
+    println(a.equals(b))
+    println(a===b)
 }
 
 class NewVersion(override var i: Int, override var i1: Int) : Version(i, i1) {

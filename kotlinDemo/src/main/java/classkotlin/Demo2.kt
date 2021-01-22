@@ -1,4 +1,4 @@
-package ClassKotlin
+package classkotlin
 
 import java.util.function.BinaryOperator
 import java.util.function.IntBinaryOperator

@@ -1,4 +1,4 @@
-package ClassKotlin
+package classkotlin
 
 
 fun main(args: Array<String>) {
