@@ -3,6 +3,7 @@ package com.example.mykotlin.demo5.coroutines1
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,10 +12,11 @@ import kotlinx.coroutines.*
 import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
-
+private const val TAG = "DownloadPicActivity"
 class DownloadPicActivity : AppCompatActivity() {
     private lateinit var button: Button
     private lateinit var imageView: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_download_pic)
@@ -22,6 +24,7 @@ class DownloadPicActivity : AppCompatActivity() {
         imageView = findViewById(R.id.downloadUrlimg)
         button.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch{
+                test1()
                 val uploadImg =
                     uploadImg("http://pic27.nipic.com/20130329/7226383_172247265181_2.jpg")
                 if (uploadImg != null && uploadImg is Bitmap) {
@@ -53,6 +56,19 @@ class DownloadPicActivity : AppCompatActivity() {
             e
         }
 
+    }
+
+    suspend fun test1() = withContext(Dispatchers.Main) {
+        val myThreadLocal = ThreadLocal<String?>()
+
+        Log.i(TAG, myThreadLocal.get()?:"null") // Prints "null"
+        launch(Dispatchers.Default + myThreadLocal.asContextElement(value = "foo")) {
+            println(myThreadLocal.get()) // Prints "foo"
+            withContext(Dispatchers.Main) {
+                Log.i(TAG, myThreadLocal.get()?:"")  // Prints "foo", but it's on UI thread
+            }
+        }
+        Log.i(TAG, myThreadLocal.get()?:"null")  // Prints "null"
     }
 
 

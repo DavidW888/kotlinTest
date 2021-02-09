@@ -13,16 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyKotlin">
         <activity android:name=".demo5.coroutines3.RequestActivity">
+
+        </activity>
+        <activity android:name=".demo5.coroutines2.DownloadImgDivideActivity">
+
+        </activity>
+        <activity android:name=".demo5.coroutines1.DownloadPicActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".demo5.coroutines2.DownloadImgDivideActivity">
-
-        </activity>
-        <activity android:name=".demo5.coroutines1.DownloadPicActivity"></activity>
         <activity android:name=".demo1.MainActivity" />
     </application>
 
